@@ -1,0 +1,15 @@
+version: '3.8'
+services :
+  db:
+    image: postgres:15.3-alpine
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: MultiFamily
+  admin:
+    image: adminer
+    restart: always
+    depends_on: 
+      - db
+    ports:
+      - 8080:8080
